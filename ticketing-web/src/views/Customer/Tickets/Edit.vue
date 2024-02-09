@@ -89,17 +89,19 @@
                 .catch( function(error){
                     if (error.response){
                         if (error.response.status == 404){
-                            alert(error.response.data.message);
-                            // mythis.errorList = error.response.data.message;
+                            mythis.errorList = error.response.data.errors;
                         }
                     }
                 });
 
             },
 
-            updateTicket(){
+            async updateTicket(){
                 var mythis = this;
-                axios.put('http://127.0.0.1:8000/api/tickets/${this.ticketId}/edit', this.model.ticket)
+                 
+                await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie');
+               
+                await axios.put('http://127.0.0.1:8000/api/tickets/${this.ticketId}/edit', this.model.ticket)
                 .then(res => {
                     alert(res.data.message);
                     this.model.ticket = {

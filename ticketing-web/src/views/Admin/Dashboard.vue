@@ -6,6 +6,21 @@
         <h3>Hello, {{ user.name }}</h3>
         <span>{{ user.email }}</span>
       </div>
+
+      <div class="mb-4">
+        <ul class="mb-2 mb-lg-0">    
+            <li>
+              <RouterLink v-if="user" to="/users">Users</RouterLink>
+            </li>
+            <li>
+              <RouterLink v-if="user" to="/staffs">Staffs</RouterLink>
+            </li>
+            
+            <li>
+              <RouterLink v-if="user" to="/admin/tickets">Tickets</RouterLink>
+            </li>
+          </ul>
+      </div>
     </div>
   </div>
 </template>

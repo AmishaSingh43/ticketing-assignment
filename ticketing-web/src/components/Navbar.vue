@@ -17,6 +17,9 @@
                 <li class="nav-item">
                   <RouterLink class="nav-link active" v-if="!isLoggedIn" to="/"></RouterLink>
                 </li>
+                <li class="nav-item">
+                  <RouterLink class="nav-link active" v-if="isLoggedIn && isAdmin" to="/dashboard">Dashboard</RouterLink>
+                </li>
                 <li>
                   <RouterLink class="nav-link active" v-if="isLoggedIn && isAdmin" to="/users">Users</RouterLink>
                 </li>

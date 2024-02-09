@@ -9,9 +9,9 @@ export default {
     return Api().post("/tickets", form);
   },
 
-//   editTicket(id, form) {
-//     return Api().post('/tickets/#{id}/edit', form);
-//   },
+  editTicket(id, form) {
+    return Api().put('/tickets/#{id}/edit', form);
+  },
 
   showTicket(id) {
     return Api().get('/tickets/#{id}/edit');
